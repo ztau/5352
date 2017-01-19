@@ -27,7 +27,7 @@ SEM_v2<- function(fct, VECTPAR,lengthPhi,lengthTheta,k, target=NA, it, envir, lo
     
     
     
-    min_param_change=amplitude/100  # the minimum and the maximum of the step are calculated as fractions of the amplitude between the limits (parameter space) 
+    min_param_change=amplitude/150  # the minimum and the maximum of the step are calculated as fractions of the amplitude between the limits (parameter space) 
     max_param_change=amplitude/10
     
     
