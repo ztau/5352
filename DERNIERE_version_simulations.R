@@ -1,6 +1,6 @@
 rm(list=ls())
 set.seed(111)
-setwd("G:/Mes codes R (version finale!) - Copie à modifier")
+#setwd("E:/git")
 
 load("SEQ15")#15,50,100,200
 longueur=15
@@ -91,7 +91,7 @@ for(i in 1:iter11){
     Vit_hist<-array(0,c(1,1034))
     LL_hist=0
     total=2
-    # pb <- tkProgressBar(title = "ça prends beaucoup trop de temps non?", min = 0,
+    # pb <- tkProgressBar(title = "Ã§a prends beaucoup trop de temps non?", min = 0,
     #                     max = total, width = 500)
     source("OPTIMISATION1_universal_NEW_Adiag_covminmax.R")
     
