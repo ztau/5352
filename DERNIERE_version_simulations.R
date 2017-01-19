@@ -10,7 +10,6 @@ longueur=15
 # # set.seed(333) for longueur=100
 # # set.seed(444) for longueur=200
 # 
-# longueur=200
  iter11=1000
  LL1=0
  fct_calls1=0
@@ -91,8 +90,7 @@ for(i in 1:iter11){
     Vit_hist<-array(0,c(1,1034))
     LL_hist=0
     total=2
-    # pb <- tkProgressBar(title = "ça prends beaucoup trop de temps non?", min = 0,
-    #                     max = total, width = 500)
+
     source("OPTIMISATION1_universal_NEW_Adiag_covminmax.R")
     
     envir<-new.env()
@@ -112,7 +110,6 @@ for(i in 1:iter11){
     
     
     X_cov=array(0)
-    #Phi_cov=array(runif(k*nrow(X_cov),min=-0.5,max=1), c(k,nrow(X_cov)))
     Phi_cov_constr=array(0,c(k,nrow(X_cov)))   # constraints on Phi_cov   Phi_cov_constr=array(1,c(k,nrow(X_cov)))
     phi_cov_places=which(Phi_cov_constr!=0)
     
@@ -129,7 +126,6 @@ for(i in 1:iter11){
     fct_calls<-envir$fct_calls
     A<-envir$A
     Pi<-envir$Pi
-    #proc.time() - ptm
     
     Param
     LL
@@ -145,12 +141,11 @@ for(i in 1:iter11){
     parameters<-rbind(parameters,Param)
     AetPi<-rbind(AetPi,A,Pi)
     datahist=rbind(datahist,c(i,Data))
-    #Matrice<-rbind(Matrice,if(ncol(table(Data[,1],Vit[,4]))==3){table(Data[,1],Vit[,4])}else{cbind(table(Data[,1],Vit[,4]),array(0,c(3,3-ncol(table(Data[,1],Vit[,4])))))})
 }# 
 proc.time() - ptm
 # 
 Results <- setClass(
-    # Set the name for the class
+    # Name of the class
     "Results",
     # Define the slots
     slots = c(
@@ -161,7 +156,7 @@ Results <- setClass(
         datahist = "matrix"
     ),
     
-    # Set the default values for the slots. (optional)
+    # default values for the slots
     prototype=list(
         parameters = matrix(0),
         AetPi = matrix(0),
